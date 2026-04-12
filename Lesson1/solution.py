@@ -15,6 +15,9 @@ class GameScene(s.Scene):
         # Делаем птичку "живой" (Dynamic). Задаем отскок = 0, чтобы при касании пола она не прыгала.
         self.player_body = s.add_physics(self.player, s.PhysicsConfig(bounce=0.0))
         
+        # Устанавливаем гравитацию — без этого птичка не будет падать!
+        s.physics.set_gravity(980)
+        
         # Добавляем физические границы экрана, чтобы птичка не выпадала за его пределы
         s.physics.set_bounds(s.pygame.Rect(0, 0, 400, 600))
 
